@@ -17,7 +17,6 @@ NAV = [
     ("index.html", "Home"),
     ("audio-books.html", "Audio Books"),
     ("give.html", "Give"),
-    ("podcast.html", "MOG Podcast"),
     ("merch.html", "MOG Merch"),
 ]
 
@@ -71,7 +70,7 @@ FOOTER = """    </main>
           <div class="footer-brand">
             <img src="./assets/img/mog-logo.png" alt="MOG Ministries" width="1400" height="411" />
             <p>
-              Ministering to the heart of God by going out to the least of these. Prisons. Streets.
+              Ministering to the heart of God by going out to the least of these. Prisons. Jails.
               The overlooked. The youth of this generation.
             </p>
           </div>
@@ -81,7 +80,6 @@ FOOTER = """    </main>
               <li><a href="./index.html">Home</a></li>
               <li><a href="./audio-books.html">Audio Books</a></li>
               <li><a href="./give.html">Give</a></li>
-              <li><a href="./podcast.html">MOG Podcast</a></li>
               <li><a href="./merch.html">MOG Merch</a></li>
               <li><a href="./sow.html">Sow a Seed</a></li>
             </ul>
@@ -177,7 +175,7 @@ give_body = pagehead(
                 </ul>
                 <p>
                   This is for those who refuse to sit back and wait— who want to take the Gospel into
-                  prisons, streets, and broken places where it's needed most.
+                  prisons, jails, and broken places where it's needed most.
                 </p>
                 <p>
                   If you care more about souls than comfort… if you believe the church should be
@@ -284,9 +282,8 @@ give_body = pagehead(
               <p class="ledger__stat">02</p>
               <h3 class="ledger__title">Discipleship &amp; Identity</h3>
               <p class="ledger__desc">
-                Through in-person ministry and the Hope Dealers Podcast delivered to inmate tablets,
-                we will disciple men in identity, leadership, prayer, generosity, responsibility, and
-                vision.
+                Through in-person ministry inside facilities, we will disciple men in identity,
+                leadership, prayer, generosity, responsibility, and vision.
               </p>
             </article>
             <article class="ledger__row reveal">
@@ -357,7 +354,7 @@ sow_body = pagehead(
           <div class="stack-lines stack-lines--lg reveal" role="list">
             <p role="listitem">We don't wait for the darkness to come to us.</p>
             <p role="listitem">We take the light of Jesus into dark places.</p>
-            <p role="listitem">Prisons. Streets. The overlooked. The youth of this generation.</p>
+            <p role="listitem">Prisons. Jails. The overlooked. The youth of this generation.</p>
             <p role="listitem">This is where we go.</p>
           </div>
           <p class="lede mt-10 reveal">
@@ -377,8 +374,8 @@ sow_body = pagehead(
                 <p>This is for the person who wants to be consistent.</p>
                 <p>
                   When you become a Partner, you're joining the mission in a real way. Your monthly
-                  partnership helps us keep showing up behind the walls, in homeless outreaches, and
-                  in discipleship follow-ups.
+                  partnership helps us keep showing up behind the walls and in discipleship
+                  follow-ups.
                 </p>
                 <p>
                   This isn't about building a platform. It's about taking Jesus where He's taken the
@@ -492,10 +489,9 @@ sow_body = pagehead(
           </h2>
           <ul class="checklist mt-12 grid grid--2" role="list">
             <li class="reveal">Bring hope to inmates behind the walls</li>
-            <li class="reveal">Feed and supply homeless outreaches</li>
             <li class="reveal">Put discipleship resources into people's hands for free</li>
             <li class="reveal">Reach the youth of this generation with engaging, Scripture-rooted content</li>
-            <li class="reveal">Keep discipleship going through a behind-the-walls podcast</li>
+            <li class="reveal">Fund audio books and free discipleship content behind the walls</li>
             <li class="reveal">Sow back into the places and organizations we minister with</li>
           </ul>
           <div class="btn-row mt-12 reveal">
@@ -732,7 +728,7 @@ merch_body = pagehead(
     856,
     "MOG Merch",
     'MOG Merch <span class="gold-text">Available Now</span>',
-    "All Proceeds go to Homeless and Prison Ministry",
+    "All Proceeds go to Prison Ministry",
     actions=f'<a class="btn btn--gold btn--lg" href="{SHOP}" target="_blank" rel="noopener noreferrer">Shop Now</a>',
 ) + f"""
 
@@ -790,7 +786,7 @@ merch_body = pagehead(
       <section class="cta-band">
         <div class="cta-band__inner reveal">
           <p class="eyebrow eyebrow--center">Every dollar goes out</p>
-          <h2 class="h-section">All Proceeds go to Homeless and Prison Ministry</h2>
+          <h2 class="h-section">All Proceeds go to Prison Ministry</h2>
           <div class="btn-row mt-10" style="justify-content: center">
             <a class="btn btn--gold btn--lg" href="{SHOP}" target="_blank" rel="noopener noreferrer">Shop Now</a>
             <a class="btn btn--outline btn--lg" href="./give.html">Partner With Us Here</a>
@@ -821,16 +817,9 @@ build(
     ab_body,
 )
 build(
-    "podcast.html",
-    "MOG Podcast | MOG Ministries",
-    "Teaching, prayer and discipleship from MOG Ministries — on Spotify and delivered to inmate tablets behind the walls.",
-    "tex-razorwire.webp",
-    pod_body,
-)
-build(
     "merch.html",
     "MOG Merch | MOG Ministries",
-    "MOG Merch available now. All proceeds go to homeless and prison ministry. The official Hope Dealer t-shirt is exclusive to monthly partners.",
+    "MOG Merch available now. All proceeds go to prison ministry. The official Hope Dealer t-shirt is exclusive to monthly partners.",
     "baptism-certs-1600.webp",
     merch_body,
 )
