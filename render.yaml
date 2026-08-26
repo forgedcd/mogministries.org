@@ -1,0 +1,35 @@
+services:
+  - type: web
+    runtime: static
+    name: mogministries
+    plan: free
+    branch: master
+    buildCommand: python3 _build_pages.py
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    routes:
+      - type: rewrite
+        source: /index
+        destination: /index.html
+      - type: rewrite
+        source: /give
+        destination: /give.html
+      - type: rewrite
+        source: /sow
+        destination: /sow.html
+      - type: rewrite
+        source: /audio-books
+        destination: /audio-books.html
+      - type: rewrite
+        source: /merch
+        destination: /merch.html
