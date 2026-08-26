@@ -2,9 +2,7 @@ services:
   - type: web
     runtime: static
     name: mogministries
-    plan: free
     branch: master
-    buildCommand: python3 _build_pages.py
     staticPublishPath: .
     pullRequestPreviewsEnabled: true
     headers:
