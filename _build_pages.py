@@ -5,6 +5,7 @@ import pathlib
 ROOT = pathlib.Path(__file__).parent
 
 GIVING = "https://mog-ministries-518429.churchcenter.com/giving"
+GIVING_BOOKS = "https://mog-ministries-518429.churchcenter.com/giving/to/books"
 LOGIN = "https://mog-ministries-518429.churchcenter.com/login"
 SPOTIFY = "https://open.spotify.com/show/6ksbkht4V8t94FUHcdaVnK"
 CC = "https://mog-ministries-518429.churchcenter.com"
@@ -294,21 +295,13 @@ give_body = pagehead(
                 space for baptisms. Generosity is not a tactic—it is the Gospel in action.
               </p>
             </article>
-            <article class="ledger__row reveal">
-              <p class="ledger__stat">04</p>
-              <h3 class="ledger__title">Hope Dealers Character &amp; Incentive Program</h3>
-              <p class="ledger__desc">
-                We are developing a character-based program that rewards integrity, self-control, and
-                positive influence—helping shift prison culture from survival to leadership.
-              </p>
-            </article>
           </div>
         </div>
       </section>
 
       <section class="section" aria-labelledby="goal-title">
         <div class="shell">
-          <p class="eyebrow">05 — The end goal</p>
+          <p class="eyebrow">04 — The end goal</p>
           <h2 class="h-section reveal" id="goal-title">Not behavior modification. Heart transformation.</h2>
           <div class="prose mt-10 reveal">
             <p>
@@ -341,10 +334,10 @@ give_body = pagehead(
 # SOW
 # ==========================================================================
 sow_body = pagehead(
-    "yard-circle-1600.webp",
-    "Ministry team praying with a circle of young men in a prison yard",
+    "baptism-water-1600.webp",
+    "Frank Ortega baptizing an inmate inside a prison chapel baptistry",
     1600,
-    960,
+    2133,
     "Sow a Seed",
     'Sow into <span class="gold-text">M.O.G.</span> Ministries',
     "Three Ways to Sow Into the Least of These",
@@ -419,48 +412,65 @@ sow_body = pagehead(
 
       <section class="section section--panel" aria-labelledby="sow2-title">
         <div class="shell">
-          <p class="eyebrow">02 — Sowing Books</p>
-          <h2 class="h-section reveal" id="sow2-title">Put something in someone's hands</h2>
+          <p class="eyebrow">02 — Sow a Book</p>
+          <h2 class="h-section reveal" id="sow2-title">Put a book in an inmate's hands</h2>
           <div class="split split--wide-left mt-12">
             <div class="prose reveal">
               <p>
-                This is for the person who's like, "I don't just want to give. I want to KNOW someone
+                This is for the person who says, "I don't just want to give. I want to KNOW an inmate
                 is holding what I sow."
               </p>
               <p>
-                When you sow books, you're funding discipleship resources that go directly into
-                people's hands for free, especially behind the walls.
+                When you sow a book, you're covering the print cost of one of Frank Ortega's titles —
+                <em>Father Wounds</em>, <em>Real Prayer</em>, or <em>unForgiveness</em> — and putting
+                it directly into the hands of a man behind the walls. Free to him. Purchased by you.
               </p>
               <p>Here's the simple math:</p>
               <div class="bigline"><p class="gold-text">$11 = 1 book sown.</p></div>
-              <p>That $11 covers printing the book AND getting it distributed.</p>
+              <p>That $11 covers printing AND getting the book distributed inside the facility.</p>
               <p>
-                We set it up this way because it's about half the Amazon retail pricing, and it lets
-                you sow something tangible into someone's life without wondering where it went.
+                It's about half the Amazon retail price. And when you give, choose the
+                <strong>“Books”</strong> designation — not general giving — so every dollar goes
+                straight to book distribution.
               </p>
+              <div class="btn-row mt-10">
+                <a class="btn btn--gold btn--lg" href="{GIVING_BOOKS}" target="_blank" rel="noopener noreferrer">Sow a Book</a>
+              </div>
             </div>
             <div class="reveal">
-              <p class="eyebrow">Books available to sow right now</p>
+              <p class="eyebrow">Books going into inmates' hands</p>
               <ol class="book-list mt-8" role="list">
                 <li class="book-row">
                   <span class="book-row__no">01</span>
+                  <a class="book-row__title" href="{AMZ_FATHER}" target="_blank" rel="noopener noreferrer">
+                    Father Wounds <span>8 Steps to Heal Your Relationship with your Dad</span>
+                  </a>
+                </li>
+                <li class="book-row">
+                  <span class="book-row__no">02</span>
                   <a class="book-row__title" href="{AMZ_REAL}" target="_blank" rel="noopener noreferrer">
                     Real Prayer <span>A No B.S Guide to a Powerful Prayer Life</span>
                   </a>
                 </li>
                 <li class="book-row">
-                  <span class="book-row__no">02</span>
-                  <a class="book-row__title" href="{AMZ_UNFOR}" target="_blank" rel="noopener noreferrer">
-                    Unforgiveness <span>How to Forgive When They Don't Deserve It</span>
-                  </a>
-                </li>
-                <li class="book-row">
                   <span class="book-row__no">03</span>
-                  <a class="book-row__title" href="{AMZ_FATHER}" target="_blank" rel="noopener noreferrer">
-                    Father Wounds <span>8 Steps to Heal Your Relationship with your Dad</span>
+                  <a class="book-row__title" href="{AMZ_UNFOR}" target="_blank" rel="noopener noreferrer">
+                    unForgiveness <span>How to Forgive When They Don't Deserve It</span>
                   </a>
                 </li>
               </ol>
+              <figure class="mt-12">
+                <img
+                  src="./assets/img/chapel-teaching-800.webp"
+                  srcset="./assets/img/chapel-teaching-800.webp 800w, ./assets/img/chapel-teaching-1600.webp 1600w"
+                  sizes="(max-width: 900px) 100vw, 40vw"
+                  alt="Frank Ortega teaching from a pulpit inside a Florida prison chapel filled with inmates in blue uniforms"
+                  width="800"
+                  height="1066"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -489,9 +499,9 @@ sow_body = pagehead(
           </h2>
           <ul class="checklist mt-12 grid grid--2" role="list">
             <li class="reveal">Bring hope to inmates behind the walls</li>
-            <li class="reveal">Put discipleship resources into people's hands for free</li>
+            <li class="reveal">Put free physical books — <em>Father Wounds</em>, <em>Real Prayer</em>, <em>unForgiveness</em> — into inmates' hands</li>
             <li class="reveal">Reach the youth of this generation with engaging, Scripture-rooted content</li>
-            <li class="reveal">Fund audio books and free discipleship content behind the walls</li>
+            <li class="reveal">Fund the RTD (Road to Damascus) 12-week discipleship program inside the walls</li>
             <li class="reveal">Sow back into the places and organizations we minister with</li>
           </ul>
           <div class="btn-row mt-12 reveal">
@@ -511,7 +521,7 @@ ab_body = pagehead(
     1536,
     "Audio Books — January 3–16, 2026",
     "Audio <span class=\"gold-text\">Books</span>",
-    "Full-length books, read aloud and released free — for the church and for the men behind the walls.",
+    "Full-length books, read aloud and released free — enjoy them yourself, then sow a paperback into the hands of a man behind the walls.",
 ) + f"""
       <section class="section" aria-label="Audio book releases">
         <div class="shell">
@@ -568,12 +578,14 @@ ab_body = pagehead(
       <section class="cta-band">
         <div class="cta-band__inner reveal">
           <p class="eyebrow eyebrow--center">Put it in their hands</p>
-          <h2 class="h-section">Sow a book behind the walls</h2>
+          <h2 class="h-section">Sow a paperback behind the walls</h2>
           <p class="lede muted mt-8">
-            Fund discipleship resources that go directly into people's hands for free.
+            Enjoy the audio books yourself, then sow a physical copy of <em>Father Wounds</em>,
+            <em>Real Prayer</em>, or <em>unForgiveness</em> into an inmate's hands for $11. Tap Sow
+            a Seed and choose the “Books” designation.
           </p>
           <div class="btn-row mt-10" style="justify-content: center">
-            <a class="btn btn--gold btn--lg" href="./sow.html">Sow a Seed</a>
+            <a class="btn btn--gold btn--lg" href="./sow.html">Sow a Book</a>
           </div>
         </div>
       </section>
