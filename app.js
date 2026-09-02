@@ -122,4 +122,100 @@
       co.observe(el);
     });
   }
+
+  // ================= Lightbox =================
+  // Auto-attaches to any content image. Skips logos and small brand marks.
+  var SKIP = /mog-logo|mog-shield|favicon/i;
+
+  function bestSrc(img) {
+    // Prefer the largest source in srcset if present, else the src.
+    var ss = img.getAttribute('srcset');
+    if (ss) {
+      var best = null;
+      var bestW = 0;
+      ss.split(',').forEach(function (part) {
+        var p = part.trim().split(/\s+/);
+        var url = p[0];
+        var w = parseInt((p[1] || '0').replace('w', ''), 10) || 0;
+        if (w >= bestW) { bestW = w; best = url; }
+      });
+      if (best) return best;
+    }
+    return img.currentSrc || img.src;
+  }
+
+  var overlay = null;
+  var overlayImg = null;
+  var overlayCap = null;
+  var lastFocus = null;
+
+  function buildOverlay() {
+    if (overlay) return;
+    overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Image viewer');
+    overlay.innerHTML = ''
+      + '<button class="lightbox__close" type="button" aria-label="Close">&times;</button>'
+      + '<figure class="lightbox__figure">'
+      +   '<img class="lightbox__img" alt="" />'
+      +   '<figcaption class="lightbox__cap"></figcaption>'
+      + '</figure>';
+    document.body.appendChild(overlay);
+    overlayImg = overlay.querySelector('.lightbox__img');
+    overlayCap = overlay.querySelector('.lightbox__cap');
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target.classList.contains('lightbox__close') || e.target.classList.contains('lightbox__figure')) {
+        closeLightbox();
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (overlay.classList.contains('is-open') && (e.key === 'Escape' || e.key === 'Esc')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  function openLightbox(img) {
+    buildOverlay();
+    lastFocus = document.activeElement;
+    overlayImg.src = bestSrc(img);
+    overlayImg.alt = img.alt || '';
+    var fig = img.closest('figure');
+    var cap = fig ? fig.querySelector('figcaption') : null;
+    overlayCap.textContent = cap ? cap.textContent.trim() : (img.alt || '');
+    overlayCap.style.display = overlayCap.textContent ? '' : 'none';
+    overlay.classList.add('is-open');
+    document.documentElement.style.overflow = 'hidden';
+    var closeBtn = overlay.querySelector('.lightbox__close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.documentElement.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function attachImage(img) {
+    if (img.dataset.lightboxBound === '1') return;
+    var src = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('srcset') || '');
+    if (SKIP.test(src)) return;
+    // Don't open lightboxes when the image is inside an anchor (e.g., audio-player card links).
+    if (img.closest('a')) return;
+    img.dataset.lightboxBound = '1';
+    img.classList.add('is-zoomable');
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', (img.alt || 'Open image') + ' — tap to view full size');
+    img.addEventListener('click', function () { openLightbox(img); });
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(img); }
+    });
+  }
+
+  document.querySelectorAll('img').forEach(attachImage);
 })();
