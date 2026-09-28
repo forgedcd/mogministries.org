@@ -45,6 +45,11 @@ HEAD = """<!doctype html>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
+      <a class="topbar" href="./testimony.html">
+        <span class="topbar__tag">New testimony</span>
+        <span class="topbar__text">A Eulogy From Behind the Walls</span>
+        <span class="topbar__cta">Read it &rarr;</span>
+      </a>
       <div class="header-inner">
         <a class="brand" href="./index.html" aria-label="MOG Ministries — home">
           <img src="./assets/img/mog-logo.png" alt="MOG Ministries" width="1400" height="411" />
@@ -83,6 +88,7 @@ FOOTER = """    </main>
               <li><a href="./give.html">Give</a></li>
               <li><a href="./merch.html">MOG Merch</a></li>
               <li><a href="./sow.html">Sow a Seed</a></li>
+              <li><a href="./testimony.html">A Eulogy From Behind the Walls</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -834,4 +840,13 @@ build(
     "MOG Merch available now. All proceeds go to prison ministry. The official Hope Dealer t-shirt is exclusive to monthly partners.",
     "baptism-certs-1600.webp",
     merch_body,
+)
+
+from _testimony_body import body as _tbody
+build(
+    "testimony.html",
+    "A Eulogy From Behind the Walls | MOG Ministries",
+    "A handwritten eulogy by an RTD Program student serving two life sentences. His testimony of what Jesus has done, shared at his request.",
+    "eulogy/page-1-1400.webp",
+    _tbody(GIVING),
 )

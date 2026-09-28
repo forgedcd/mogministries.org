@@ -219,3 +219,63 @@
 
   document.querySelectorAll('img').forEach(attachImage);
 })();
+
+// ================= Eulogy carousel + share =================
+(function () {
+  var track = document.querySelector('[data-eul-track]');
+  if (track) {
+    var slides = Array.prototype.slice.call(track.querySelectorAll('.eul-slide'));
+    var cur = document.querySelector('[data-eul-cur]');
+    var prev = document.querySelector('[data-eul-prev]');
+    var next = document.querySelector('[data-eul-next]');
+    var dotsWrap = document.querySelector('[data-eul-dots]');
+    var idx = 0;
+    var dots = slides.map(function (s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to page ' + (i + 1));
+      b.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      var s = slides[i];
+      track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.clientWidth) / 2, behavior: 'smooth' });
+    }
+    function update() {
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var best = 0, bestD = Infinity;
+      slides.forEach(function (s, i) {
+        var d = Math.abs(s.offsetLeft + s.clientWidth / 2 - center);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      idx = best;
+      cur.textContent = idx + 1;
+      prev.disabled = idx === 0;
+      next.disabled = idx === slides.length - 1;
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+    }
+    var t;
+    track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+    prev.addEventListener('click', function () { go(idx - 1); });
+    next.addEventListener('click', function () { go(idx + 1); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
+    });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  var share = document.querySelector('[data-share]');
+  if (share) {
+    share.addEventListener('click', function () {
+      var data = { title: 'A Eulogy From Behind the Walls', text: 'A handwritten testimony from a man serving two life sentences. Read what Jesus has done.', url: location.href.split('#')[0] };
+      if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+      var done = function () { var o = share.textContent; share.textContent = 'Link copied'; setTimeout(function () { share.textContent = o; }, 2000); };
+      if (navigator.clipboard) navigator.clipboard.writeText(data.url).then(done, function () { prompt('Copy this link:', data.url); });
+      else prompt('Copy this link:', data.url);
+    });
+  }
+})();
