@@ -134,7 +134,11 @@ def body(GIVING):
             <h3 class="eul-sub">He asked us to never leave out the bad parts.</h3>
             <p>So we won't. He was sent to prison for murder. Once inside, he took another life. He operated by taking control and establishing power through violence &mdash; and he told us that when he received a life sentence, he dedicated his life to becoming one of the most well-known killers inside prison, so that his name would be significant.</p>
             <p>For the past five years, he has been in solitary confinement. Not because he was a victim, but because of his own violent behavior.</p>
-            <p>We share this for one reason only: to honor his request, and to show the power of Jesus Christ. The bad parts only highlight how powerful Jesus is. What you're about to read is what God has done since.</p>
+            <p>And here is the part that stops people cold: the only reason he picked up a Bible was to use it as leverage. He wanted it as a way into conversations, a way to get close to people so he could end their lives. That isn't hype, and we didn't make it up. He told us himself, in one of our classrooms.</p>
+            <h3 class="eul-sub">A modern-day Road to Damascus.</h3>
+            <p>But while he was reading that Bible, Jesus Christ met him, and the Holy Spirit interrupted everything.</p>
+            <p>We named this program the Road to Damascus before we ever met him. His story reads like Saul's. Saul was on the road looking for more Christians to persecute when God stopped him in his tracks. This man was looking for more reasons to kill, and he was going to use the Word of God to do it. But God had another plan.</p>
+            <p>We share all of this for one reason only: to honor his request, and to show the power of Jesus Christ. As you read his words, we want you to feel the weight of this transformation. No program, no teacher, and no amount of willpower could do this. Only God can. What you're about to read is what He has done since.</p>
             <p>To protect him, we've withheld his first name. But he didn't just give us permission to share this &mdash; he asked us to share it with as many people as possible. He believes that every time his story is told, he gets to leave prison in the spirit.</p>
             <p class="eul-credit">Our program didn't do this. Our teaching didn't do this. Our wisdom didn't do this. This transformation only happened because of the sacrifice of the man on the middle cross, Jesus Christ.</p>
           </div>
