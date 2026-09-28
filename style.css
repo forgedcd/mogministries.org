@@ -808,3 +808,4 @@ figcaption {
 .t-close { font-family: var(--font-display); font-size: var(--text-xl) !important; color: var(--color-primary) !important; text-transform: uppercase; }
 .t-sign { font-family: var(--font-mono); font-size: var(--text-sm) !important; color: var(--color-text-muted) !important; letter-spacing: 0.1em; }
 .eul-reader .muted a { color: var(--color-primary); text-underline-offset: 3px; }
+.eul-sub { font-family: var(--font-display); font-size: var(--text-xl); text-transform: uppercase; letter-spacing: -0.01em; color: var(--color-primary); margin-top: var(--space-10); margin-bottom: var(--space-2); line-height: 1.1; }
