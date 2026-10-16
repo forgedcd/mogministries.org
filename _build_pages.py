@@ -89,6 +89,7 @@ FOOTER = """    </main>
               <li><a href="./merch.html">MOG Merch</a></li>
               <li><a href="./sow.html">Sow a Seed</a></li>
               <li><a href="./testimony.html">A Eulogy From Behind the Walls</a></li>
+              <li><a href="./class-two.html">RTD Class Two Graduates</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -849,4 +850,13 @@ build(
     "A handwritten eulogy by an RTD Program student serving two life sentences. His testimony of what Jesus has done, shared at his request.",
     "eulogy/page-1-1400.webp",
     _tbody(GIVING),
+)
+
+from _class_two_body import body as _c2body
+build(
+    "class-two.html",
+    "RTD Class Two Graduation | MOG Ministries",
+    "Honoring the second graduating class of the Road to Damascus Program at Suwannee Correctional Institution, October 14, 2026.",
+    "class-two/class-2000.webp",
+    _c2body(),
 )

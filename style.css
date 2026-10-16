@@ -809,3 +809,77 @@ figcaption {
 .t-sign { font-family: var(--font-mono); font-size: var(--text-sm) !important; color: var(--color-text-muted) !important; letter-spacing: 0.1em; }
 .eul-reader .muted a { color: var(--color-primary); text-underline-offset: 3px; }
 .eul-sub { font-family: var(--font-display); font-size: var(--text-xl); text-transform: uppercase; letter-spacing: -0.01em; color: var(--color-primary); margin-top: var(--space-10); margin-bottom: var(--space-2); line-height: 1.1; }
+
+/* ================== RTD Class Two graduation page ================== */
+.grad-hero { position: relative; padding-top: clamp(var(--space-12), 9vh, 6rem); padding-bottom: clamp(var(--space-12), 8vh, 5rem); border-bottom: 1px solid var(--color-divider); overflow: hidden; }
+.grad-hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--color-primary) 16%, transparent), transparent 70%);
+}
+.grad-hero__inner { text-align: center; }
+.grad-hero__inner .eyebrow { justify-content: center; }
+.grad-hero__title {
+  font-family: var(--font-display); font-size: clamp(2.75rem, 1.4rem + 6vw, 6.5rem); line-height: 0.92;
+  text-transform: uppercase; letter-spacing: -0.035em; margin-top: var(--space-5);
+}
+.grad-hero__date {
+  margin-top: var(--space-6); font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--color-text-muted);
+}
+.grad-class { margin-top: clamp(var(--space-10), 6vh, var(--space-16)); }
+.grad-class__frame {
+  position: relative; padding: clamp(6px, 1vw, 12px); border: 1px solid var(--color-border-gold, rgba(212,177,106,.5));
+  background: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent);
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+}
+.grad-class__frame::before, .grad-class__frame::after {
+  content: ''; position: absolute; width: 28px; height: 28px; border-color: var(--color-primary); border-style: solid;
+}
+.grad-class__frame::before { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
+.grad-class__frame::after { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
+.grad-class__frame img { width: 100%; height: auto; display: block; }
+.grad-class figcaption, .honor-card figcaption {
+  font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted);
+}
+.grad-class figcaption { margin-top: var(--space-4); text-align: center; }
+
+.grad-intro { display: grid; gap: var(--space-8); align-items: start; }
+@media (min-width: 900px) { .grad-intro { grid-template-columns: 0.9fr 1.1fr; gap: var(--space-16); } }
+.grad-intro .prose p { font-size: var(--text-lg); }
+.grad-verse {
+  margin: clamp(var(--space-12), 8vh, var(--space-20)) auto 0; max-width: 34ch; text-align: center;
+  padding-top: var(--space-10); border-top: 1px solid var(--color-border-gold, rgba(212,177,106,.4));
+}
+.grad-verse p { font-family: var(--font-display); font-size: clamp(1.5rem, 1rem + 2vw, 2.4rem); line-height: 1.15; text-transform: uppercase; letter-spacing: -0.015em; }
+.grad-verse cite { display: block; margin-top: var(--space-5); font-style: normal; font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); }
+
+.honor-roll { background: color-mix(in oklab, var(--color-primary) 4%, var(--color-bg)); border-block: 1px solid var(--color-divider); }
+.honor-grid { display: grid; gap: clamp(var(--space-5), 2.4vw, var(--space-8)); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.honor-card { margin: 0; }
+.honor-card__frame {
+  position: relative; overflow: hidden; border: 1px solid var(--color-border-gold, rgba(212,177,106,.45)); padding: 6px;
+  background: var(--color-bg); transition: transform 260ms var(--ease-out, ease), box-shadow 260ms var(--ease-out, ease);
+}
+.honor-card__frame img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; display: block; transition: transform 500ms var(--ease-out, ease); }
+.honor-card:hover .honor-card__frame { transform: translateY(-4px); box-shadow: 0 22px 50px rgba(0,0,0,.4); }
+.honor-card:hover .honor-card__frame img { transform: scale(1.03); }
+.honor-card figcaption { display: flex; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-3); }
+.honor-card__no { color: var(--color-primary); }
+
+.grad-thanks { max-width: 56ch; margin-inline: auto; text-align: center; }
+.grad-thanks .eyebrow { justify-content: center; }
+.grad-thanks .h-section { margin-top: var(--space-4); }
+.grad-thanks p:last-child { margin-top: var(--space-6); font-size: var(--text-lg); color: var(--color-text-muted); }
+@media (prefers-reduced-motion: reduce) { .honor-card__frame, .honor-card__frame img { transition: none; } }
+.ledger__desc a { color: var(--color-primary); text-underline-offset: 3px; white-space: nowrap; }
+.grad-hero__inner .eyebrow { display: inline-flex; }
+.grad-hero__date { max-width: none; margin-inline: auto; }
+.grad-verse { max-width: 900px; }
+.grad-verse p { max-width: none; }
+.honor-card figcaption { flex-wrap: nowrap; white-space: nowrap; font-size: 0.68rem; }
+.grad-thanks p, .grad-thanks .h-section { margin-inline: auto; }
+@media (max-width: 640px) {
+  .honor-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  .honor-card__frame { padding: 4px; }
+  .honor-card figcaption { flex-direction: column; gap: 2px; font-size: 0.6rem; white-space: normal; }
+}
