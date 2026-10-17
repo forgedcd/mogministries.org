@@ -3,9 +3,8 @@ def _cards(n=13):
     for i in range(1,n+1):
         out.append(f'''            <figure class="honor-card reveal">
               <div class="honor-card__frame">
-                <img src="./assets/img/class-two/grad-{i:02d}-600.webp" srcset="./assets/img/class-two/grad-{i:02d}-600.webp 600w, ./assets/img/class-two/grad-{i:02d}-1200.webp 1200w" sizes="(max-width: 640px) 90vw, (max-width: 1100px) 45vw, 30vw" alt="Road to Damascus Class Two graduate with the MOG Ministries team, holding his certificate" width="600" height="800" loading="lazy" decoding="async" />
+                <img src="./assets/img/class-two/grad-{i:02d}-600.webp" srcset="./assets/img/class-two/grad-{i:02d}-600.webp 600w, ./assets/img/class-two/grad-{i:02d}-1200.webp 1200w" sizes="(max-width: 640px) 45vw, (max-width: 1100px) 45vw, 30vw" alt="A Road to Damascus Class Two graduate standing with the MOG Ministries family" width="600" height="800" loading="lazy" decoding="async" />
               </div>
-              <figcaption><span class="honor-card__no">No. {i:02d}</span><span class="honor-card__label">RTD Graduate &middot; Class Two</span></figcaption>
             </figure>''')
     return "\n".join(out)
 
@@ -18,9 +17,9 @@ def body():
         </div>
         <figure class="grad-class shell reveal">
           <div class="grad-class__frame">
-            <img src="./assets/img/class-two/class-1000.webp" srcset="./assets/img/class-two/class-1000.webp 1000w, ./assets/img/class-two/class-2000.webp 2000w" sizes="(max-width: 1200px) 94vw, 1180px" alt="The Road to Damascus Class Two graduates holding their certificates in the chapel at Suwannee Correctional Institution, with the MOG Ministries team and Lt. Harris" width="1000" height="462" fetchpriority="high" />
+            <img src="./assets/img/class-two/class-1000.webp" srcset="./assets/img/class-two/class-1000.webp 1000w, ./assets/img/class-two/class-2000.webp 2000w" sizes="(max-width: 1200px) 94vw, 1180px" alt="The Road to Damascus Class Two graduates together in the chapel at Suwannee Correctional Institution, with the MOG Ministries team and Lt. Harris" width="1000" height="462" fetchpriority="high" />
           </div>
-          <figcaption>The second graduating class of the RTD Program, certificates in hand. Tap to view full size.</figcaption>
+          <figcaption>Brothers. Family. Class Two of the Road to Damascus Program.</figcaption>
         </figure>
       </section>
 
@@ -28,19 +27,40 @@ def body():
         <div class="shell">
           <div class="grad-intro">
             <div>
-              <p class="eyebrow">Why we honor them</p>
-              <h2 class="h-section reveal" id="honor-title">Twelve weeks.<br />New men.</h2>
+              <p class="eyebrow">Where they started</p>
+              <h2 class="h-section reveal" id="honor-title">They came in<br />broken.</h2>
             </div>
             <div class="prose reveal">
-              <p>For twelve weeks, these men showed up. Week after week, they sat in a prison classroom and did the hard work most people spend a lifetime avoiding: facing what shaped them, getting honest about what they've done, and letting God heal what they could never fix on their own.</p>
-              <p>They walked in carrying anger, shame, and years of hurt. They walked out with certificates in their hands, and more importantly, with new hearts.</p>
-              <p>We don't celebrate what we taught them. We celebrate what Jesus did in them.</p>
+              <p>When these men first walked into our classroom, they were broken. Some were still running with gangs. All of them were carrying wounds nobody could see, and most of them felt completely unseen.</p>
+              <p>So we started with the message at the heart of everything we teach:</p>
+              <p class="grad-pull">God isn&rsquo;t looking to change you. He&rsquo;s looking to love you.</p>
+              <p>That&rsquo;s what the Road to Damascus Program is built on: receiving the love of God, and being transformed by the renewing of the mind. The change follows the love. Never the other way around.</p>
             </div>
           </div>
 
           <blockquote class="grad-verse reveal">
-            <p>&ldquo;Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.&rdquo;</p>
-            <cite>2 Corinthians 5:17</cite>
+            <p>&ldquo;Do not be conformed to this world, but be transformed by the renewal of your mind.&rdquo;</p>
+            <cite>Romans 12:2</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="family-title">
+        <div class="shell">
+          <div class="grad-letter reveal">
+            <p class="eyebrow">A word from Frank</p>
+            <h2 class="h-section" id="family-title">They became family.</h2>
+            <div class="prose mt-10">
+              <p>Somewhere along the way, these men stopped being a class. They became family.</p>
+              <p>I understand now why Paul wrote his letters the way he did. I understand why, when Paul left, the people wept, embraced him, and kissed him on the cheek as he went. Because that&rsquo;s exactly what graduating these men felt like.</p>
+              <p>Josh, the Sullivan family, and I are so proud of each and every one of these men. If we sat down to tell you their stories, we&rsquo;d need about a month straight just to fill you in on everything God did.</p>
+            </div>
+            <p class="grad-letter__sign">&mdash; Frank Ortega</p>
+          </div>
+
+          <blockquote class="grad-verse reveal">
+            <p>&ldquo;And there was much weeping on the part of all; they embraced Paul and kissed him.&rdquo;</p>
+            <cite>Acts 20:37</cite>
           </blockquote>
         </div>
       </section>
@@ -48,9 +68,8 @@ def body():
       <section class="section honor-roll" aria-labelledby="roll-title">
         <div class="shell">
           <div class="honor-roll__head">
-            <p class="eyebrow">The honor roll</p>
-            <h2 class="h-section reveal" id="roll-title">Every man. Every certificate.</h2>
-            <p class="muted mt-8 max-52">Each graduate stood with our team to receive his certificate. Tap any photo to see it full size.</p>
+            <p class="eyebrow">Our brothers</p>
+            <h2 class="h-section reveal" id="roll-title">Every one of them seen.<br />Every one of them loved.</h2>
           </div>
           <div class="honor-grid mt-12">
 {_cards()}
@@ -72,7 +91,7 @@ def body():
         <div class="cta-band__inner reveal">
           <p class="eyebrow eyebrow--center">Philippians 1:6</p>
           <h2 class="h-section">He who began a good work in you will carry it on to completion.</h2>
-          <p class="muted mt-8" style="max-width:52ch;margin-inline:auto">Graduation isn't the finish line. It's the first page of what God is writing next.</p>
+          <p class="muted mt-8" style="max-width:52ch;margin-inline:auto">This isn&rsquo;t the end of their story. It&rsquo;s the beginning of what God is writing next.</p>
           <div class="btn-row mt-10" style="justify-content: center">
             <a class="btn btn--gold btn--lg" href="./testimony.html">Read a Testimony From Behind the Walls</a>
             <a class="btn btn--outline btn--lg" href="./index.html#rtd-title">About the RTD Program</a>
