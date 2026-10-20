@@ -90,6 +90,7 @@ FOOTER = """    </main>
               <li><a href="./sow.html">Sow a Seed</a></li>
               <li><a href="./testimony.html">A Eulogy From Behind the Walls</a></li>
               <li><a href="./class-two.html">RTD Class Two Graduates</a></li>
+              <li><a href="./vision.html">The Vision</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -859,4 +860,13 @@ build(
     "Honoring the second graduating class of the Road to Damascus Program at Suwannee Correctional Institution, October 14, 2026.",
     "class-two/class-2000.webp",
     _c2body(),
+)
+
+from _vision_body import body as _vbody
+build(
+    "vision.html",
+    "The Vision \u2014 Depth, Not Width | MOG Ministries",
+    "In 2026 MOG Ministries went deep at Suwannee instead of chasing more prisons. In 2027 we are publishing on the Pando app, already on 671,071 inmate tablets.",
+    "yard-teaching-1600.webp",
+    _vbody(),
 )

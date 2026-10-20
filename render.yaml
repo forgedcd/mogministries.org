@@ -31,3 +31,12 @@ services:
       - type: rewrite
         source: /merch
         destination: /merch.html
+      - type: rewrite
+        source: /vision
+        destination: /vision.html
+      - type: rewrite
+        source: /class-two
+        destination: /class-two.html
+      - type: rewrite
+        source: /testimony
+        destination: /testimony.html

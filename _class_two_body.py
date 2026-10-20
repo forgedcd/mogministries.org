@@ -94,7 +94,8 @@ def body():
           <p class="muted mt-8" style="max-width:52ch;margin-inline:auto">This isn&rsquo;t the end of their story. It&rsquo;s the beginning of what God is writing next.</p>
           <div class="btn-row mt-10" style="justify-content: center">
             <a class="btn btn--gold btn--lg" href="./testimony.html">Read a Testimony From Behind the Walls</a>
-            <a class="btn btn--outline btn--lg" href="./index.html#rtd-title">About the RTD Program</a>
+            <a class="btn btn--outline btn--lg" href="./vision.html">The 2027 vision</a>
+            <a class="btn btn--ghost btn--lg" href="./index.html#rtd-title">About the RTD Program</a>
           </div>
         </div>
       </section>
