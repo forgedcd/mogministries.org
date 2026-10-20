@@ -35,6 +35,9 @@ services:
         source: /vision
         destination: /vision.html
       - type: rewrite
+        source: /class-one
+        destination: /class-one.html
+      - type: rewrite
         source: /class-two
         destination: /class-two.html
       - type: rewrite

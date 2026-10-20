@@ -89,6 +89,7 @@ FOOTER = """    </main>
               <li><a href="./merch.html">MOG Merch</a></li>
               <li><a href="./sow.html">Sow a Seed</a></li>
               <li><a href="./testimony.html">A Eulogy From Behind the Walls</a></li>
+              <li><a href="./class-one.html">RTD Class One Graduates</a></li>
               <li><a href="./class-two.html">RTD Class Two Graduates</a></li>
               <li><a href="./vision.html">The Vision</a></li>
             </ul>
@@ -860,6 +861,15 @@ build(
     "Honoring the second graduating class of the Road to Damascus Program at Suwannee Correctional Institution, October 14, 2026.",
     "class-two/class-2000.webp",
     _c2body(),
+)
+
+from _class_one_body import body as _c1body
+build(
+    "class-one.html",
+    "RTD Class One Graduation | MOG Ministries",
+    "The first graduating class of the Road to Damascus Program at Suwannee Correctional Institution.",
+    "class-one/class-2000.webp",
+    _c1body(),
 )
 
 from _vision_body import body as _vbody
