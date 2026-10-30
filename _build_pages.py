@@ -9,7 +9,6 @@ GIVING_BOOKS = "https://mog-ministries-518429.churchcenter.com/giving/to/books"
 LOGIN = "https://mog-ministries-518429.churchcenter.com/login"
 SPOTIFY = "https://open.spotify.com/show/6ksbkht4V8t94FUHcdaVnK"
 CC = "https://mog-ministries-518429.churchcenter.com"
-SHOP = "https://menofgodshop.bigcartel.com/"
 AMZ_REAL = "https://www.amazon.com/Real-Prayer-B-S-Guide-Powerful/dp/B0FHQPR7SX/"
 AMZ_FATHER = "https://www.amazon.com/Father-Wounds-Steps-Heal-Relationship/dp/B0DWRJ88T7/"
 AMZ_UNFOR = "https://www.amazon.com/unForgiveness-Forgive-When-They-Deserve/dp/B0FV3M7MX8/"
@@ -739,83 +738,6 @@ pod_body = pagehead(
       </section>
 """
 
-# ==========================================================================
-# MERCH
-# ==========================================================================
-merch_body = pagehead(
-    "baptism-certs-1600.webp",
-    "Men in blue prison uniforms holding up certificates of baptism",
-    1600,
-    856,
-    "MOG Merch",
-    'MOG Merch <span class="gold-text">Available Now</span>',
-    "All Proceeds go to Prison Ministry",
-    actions=f'<a class="btn btn--gold btn--lg" href="{SHOP}" target="_blank" rel="noopener noreferrer">Shop Now</a>',
-) + f"""
-
-      <section class="section bars-motif" aria-labelledby="tee-title">
-        <div class="shell">
-          <div class="split split--wide-right">
-            <div class="reveal">
-              <div class="tee">
-                <div>
-                  <span class="tee__shield" aria-hidden="true">
-                    <img src="./assets/img/mog-shield.png" alt="" width="120" height="120" />
-                  </span>
-                  <span class="tee__mark">
-                    <span class="l1">Hope</span>
-                    <span class="l2 gold-text">Dealer</span>
-                  </span>
-                  <span class="tee__sub">M.O.G. Ministries · Monthly Partners</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p class="eyebrow">Partners only</p>
-              <h2 class="h-section reveal" id="tee-title">The Official HOPE DEALER T-Shirt</h2>
-              <div class="prose mt-10 reveal">
-                <p>This Shirt is Exclusive for our Monthly Supporters Only.</p>
-                <p>
-                  Join the Hope Dealers Partner's Program to receive your Hope Dealer T-Shirt.
-                </p>
-              </div>
-              <div class="btn-row mt-10 reveal">
-                <a class="btn btn--gold btn--lg" href="./give.html">Partner With Us Here</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--tight" aria-label="Photos from the field">
-        <div class="strip">
-          <figure>
-            <img src="./assets/img/yard-circle-800.webp" alt="Ministry team praying with a circle of young men in a prison yard" width="800" height="480" loading="lazy" decoding="async" />
-          </figure>
-          <figure>
-            <img src="./assets/img/yard-teaching-800.webp" alt="Frank Ortega teaching a group of young men seated under a pavilion in a prison yard" width="800" height="447" loading="lazy" decoding="async" />
-          </figure>
-          <figure>
-            <img src="./assets/img/chapel-group-800.webp" alt="A chapel filled with incarcerated men gathered after a MOG Ministries service" width="800" height="353" loading="lazy" decoding="async" />
-          </figure>
-          <figure>
-            <img src="./assets/img/rtd-graduation-800.webp" alt="RTD program graduates holding certificates of completion" width="800" height="527" loading="lazy" decoding="async" />
-          </figure>
-        </div>
-      </section>
-
-      <section class="cta-band">
-        <div class="cta-band__inner reveal">
-          <p class="eyebrow eyebrow--center">Every dollar goes out</p>
-          <h2 class="h-section">All Proceeds go to Prison Ministry</h2>
-          <div class="btn-row mt-10" style="justify-content: center">
-            <a class="btn btn--gold btn--lg" href="{SHOP}" target="_blank" rel="noopener noreferrer">Shop Now</a>
-            <a class="btn btn--outline btn--lg" href="./give.html">Partner With Us Here</a>
-          </div>
-        </div>
-      </section>
-"""
-
 build(
     "give.html",
     "Give — Hope Dealers Partnership | MOG Ministries",
@@ -837,13 +759,8 @@ build(
     "tex-bars.webp",
     ab_body,
 )
-build(
-    "merch.html",
-    "MOG Merch | MOG Ministries",
-    "MOG Merch available now. All proceeds go to prison ministry. The official Hope Dealer t-shirt is exclusive to monthly partners.",
-    "baptism-certs-1600.webp",
-    merch_body,
-)
+from _build_merch import build_merch
+build_merch()
 
 from _testimony_body import body as _tbody
 build(
