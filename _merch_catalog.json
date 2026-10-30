@@ -184,7 +184,7 @@
     "handle": "mog-golf-sweater",
     "priceRangeV2": {
       "minVariantPrice": {
-        "amount": "57.43",
+        "amount": "60.00",
         "currencyCode": "USD"
       }
     }
@@ -214,7 +214,7 @@
     "handle": "mog-golf-sweater-1",
     "priceRangeV2": {
       "minVariantPrice": {
-        "amount": "57.43",
+        "amount": "60.00",
         "currencyCode": "USD"
       }
     }
@@ -234,7 +234,7 @@
     "handle": "mog-golf-polo",
     "priceRangeV2": {
       "minVariantPrice": {
-        "amount": "34.95",
+        "amount": "40.00",
         "currencyCode": "USD"
       }
     }
@@ -244,7 +244,7 @@
     "handle": "mog-golf-jersey",
     "priceRangeV2": {
       "minVariantPrice": {
-        "amount": "39.93",
+        "amount": "40.00",
         "currencyCode": "USD"
       }
     }
