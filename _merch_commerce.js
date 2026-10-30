@@ -6,7 +6,7 @@
  const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
  const status=qs('#product-status'),cartStatus=qs('#cart-status'),purchase=qs('#product-purchase'),dialog=qs('#product-dialog'),cartDialog=qs('#cart-dialog'),cartContent=qs('#cart-content');
  const CART_FIELDS=`id totalQuantity checkoutUrl cost { subtotalAmount { amount currencyCode } } lines(first:100) { nodes { id quantity cost { totalAmount { amount currencyCode } } merchandise { ... on ProductVariant { id title availableForSale product { handle title } image { url altText } price { amount currencyCode } } } } pageInfo { hasNextPage } }`;
- const PRODUCT_QUERY=`query Product($handle:String!) { product(handle:$handle) { id title description availableForSale options { name values } variants(first:100) { nodes { id title availableForSale selectedOptions {name value} image {url altText} price {amount currencyCode} } pageInfo {hasNextPage} } } }`;
+ const PRODUCT_QUERY=`query Product($handle:String!) { product(handle:$handle) { id title availableForSale options { name values } images(first:100) { nodes { id url altText } } variants(first:100) { nodes { id title availableForSale selectedOptions {name value} image {id url altText} price {amount currencyCode} } pageInfo {hasNextPage} } } }`;
  let cart=null,cartId=null,cartBusy=false,productRequest=0,activeProduct=null,activeSnapshot=null,openFrom=null,cartFrom=null;
  // Store only the cart reference, never customer or payment information.
  const CART_KEY='mog-shopify-cart-v1',CART_AGE=7*24*60*60*1000;
@@ -93,7 +93,7 @@
   const ticket=++productRequest;
   qs('#dialog-title').textContent=snapshot.title;qs('#dialog-category').textContent=`MOG / ${snapshot.category}`;
   qs('#dialog-price').textContent='Checking price…';renderDescription(handle);
-  const image=qs('#dialog-image');image.src=snapshot.image;image.alt=snapshot.title;
+  window.MOGGallery.reset(snapshot);
   purchase.replaceChildren();status.textContent='Checking live options and availability…';
   openModal(dialog,from);
   try{
@@ -114,6 +114,8 @@
   const variants=product.variants.nodes.filter(v=>!(
    snapshot.handle==='mog-golf-polo'&&v.selectedOptions.some(o=>/colou?r/i.test(o.name)&&o.value==='White with Navy Blue')
   ));
+  const updateGallery=window.MOGGallery.forProduct(product,snapshot,variants);
+  updateGallery('',snapshot.image);
   if(!variants.length||!product.availableForSale){
    purchase.replaceChildren();status.textContent='This product is currently sold out.';qs('#dialog-price').textContent='Unavailable';return;
   }
@@ -138,11 +140,8 @@
    const color=selects.find(s=>/colou?r/i.test(s.name));
    const sameColorImage=color?.value?variants.find(v=>v.image?.url&&v.selectedOptions.some(o=>o.name===color.name&&o.value===color.value)):null;
    const visualVariant=variant?.image?.url?variant:sameColorImage;
-   if(visualVariant){
-    qs('#dialog-image').src=visualVariant.image.url;
-    qs('#dialog-image').alt=visualVariant.image.altText||`${product.title}${color?.value?` in ${color.value}`:''}`;
-   }else{
-    qs('#dialog-image').src=snapshot.image;qs('#dialog-image').alt=`${product.title} general product image`;
+   updateGallery(color?.value||'',visualVariant?.image?.url);
+   if(!visualVariant){
     if(color?.value&&!sameColorImage)status.textContent=allChosen&&!variant?.availableForSale?'This combination is unavailable. Please choose another.':'A separate mockup is not available for this color. The selected option is shown below.';
    }
    if(variant){
